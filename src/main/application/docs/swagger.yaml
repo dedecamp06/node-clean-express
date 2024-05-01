@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  title: API Node Express 
+  description: API for managing vehicles CRUD spec.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:3333/api'
+paths:
+  /vehicles:
+    get:
+      summary: Get all vehicles
+      operationId: getAllVehicles
+      responses:
+        '200':
+          description: A list of vehicles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Vehicles retrieved successfully
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vehicle'
+    post:
+      summary: Create a new vehicle
+      operationId: createVehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '201':
+          description: Vehicle created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: Vehicle created successfully
+                  Created:
+                    type: string
+                    example: "124"
+  /vehicles/{id}:
+    get:
+      summary: Get a vehicle by ID
+      operationId: getVehicleById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detailed information about a vehicle
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Vehicle retrieved successfully
+                  data:
+                    $ref: '#/components/schemas/Vehicle'
+    patch:
+      summary: Update a vehicle
+      operationId: updateVehicle
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '200':
+          description: Vehicle updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Server completed the request as expected!
+    delete:
+      summary: Delete a vehicle
+      operationId: deleteVehicle
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Vehicle deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Server completed the request as expected!
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        make:
+          type: string
+          example: Toyota
+        model:
+          type: string
+          example: Corolla
+        year:
+          type: string
+          example: "2021"
