@@ -50,6 +50,9 @@ npm run dev
 npm run test
 ```
 
+## Authors
+
+- [@pedroHenrique](https://github.com/dedecamp06)
 
 
 
