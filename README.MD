@@ -4,7 +4,7 @@
 - Mongo
 - Docker (Engine / Desktop)
 
-## Instalação com Docker
+## Instalação com Docker (RECOMENDADO)
 
 - No terminal, navegue até o diretório do projeto e execute: 
 ```bash
@@ -29,7 +29,9 @@
 
   - Acesse o projeto através da URL http://localhost:3333/api
 - A Documentação de rotas está em http://localhost:3333/api-docs
-## Instalação Local
+
+
+## Instalação Local (NÃO RECOMENDADO)
 - No terminal, navegue até o diretório do projeto e execute: 
 ```bash
   npm install
