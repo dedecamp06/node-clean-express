@@ -17,6 +17,12 @@
   docker compose build nodeapp
   ```
 
+- Para dar um down na execução do docker rode o comando:
+
+```bash
+  docker compose build down
+  ```
+
 ## Testes com JEST
 - Após buildar o projeto e executa-lo, use esse comando para executar os testes:
 
