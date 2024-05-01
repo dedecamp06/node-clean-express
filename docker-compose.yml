@@ -31,8 +31,6 @@ services:
       NODE_ENV: test
       MONGO_URL: mongodb://root:example@mongodb:27017
     command: npm run test
-    volumes:
-      - .:/app
     working_dir: /app
 
 volumes:
